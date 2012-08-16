@@ -41,19 +41,19 @@
 namespace eval change_resource_files {
 
     array set ::change_resource_files::options {
-        --explore-category-tv "/path/to/file"
-		--explore-category-user "/path/to/file"
-	    --explore-category-sysconf "/path/to/file"
-		--explore-category-psn "/path/to/file"
-		--explore-category-photo "/path/to/file"
-		--explore-category-network "/path/to/file"
-		--explore-category-music "/path/to/file"
-		--explore-category-game "/path/to/file"
-		--explore-category-video "/path/to/file"
-		--explore-category-friend "/path/to/file"
-		--coldboot-raf "/path/to/file"
-        --coldboot-stereo "/path/to/file"
-        --coldboot-multi "/path/to/file"
+        --explore-category-tv "/path/to/rco"
+		--explore-category-user "/path/to/rco"
+	    --explore-category-sysconf "/path/to/rco"
+		--explore-category-psn "/path/to/rco"
+		--explore-category-photo "/path/to/rco"
+		--explore-category-network "/path/to/rco"
+		--explore-category-music "/path/to/rco"
+		--explore-category-game "/path/to/rco"
+		--explore-category-video "/path/to/rco"
+		--explore-category-friend "/path/to/rco"
+		--coldboot-raf "/path/to/raf"
+        --coldboot-stereo "/path/to/ac3"
+        --coldboot-multi "/path/to/ac3"
     }
 
     proc main {} {
