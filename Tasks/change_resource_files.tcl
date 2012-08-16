@@ -42,16 +42,16 @@ namespace eval change_resource_files {
 
     array set ::change_resource_files::options {
         --explore-category-tv "/path/to/rco"
-		--explore-category-user "/path/to/rco"
-	    --explore-category-sysconf "/path/to/rco"
-		--explore-category-psn "/path/to/rco"
-		--explore-category-photo "/path/to/rco"
-		--explore-category-network "/path/to/rco"
-		--explore-category-music "/path/to/rco"
-		--explore-category-game "/path/to/rco"
-		--explore-category-video "/path/to/rco"
-		--explore-category-friend "/path/to/rco"
-		--coldboot-raf "/path/to/raf"
+        --explore-category-user "/path/to/rco"
+	--explore-category-sysconf "/path/to/rco"
+	--explore-category-psn "/path/to/rco"
+	--explore-category-photo "/path/to/rco"
+	--explore-category-network "/path/to/rco"
+	--explore-category-music "/path/to/rco"
+	--explore-category-game "/path/to/rco"
+	--explore-category-video "/path/to/rco"
+	--explore-category-friend "/path/to/rco"
+	--coldboot-raf "/path/to/raf"
         --coldboot-stereo "/path/to/ac3"
         --coldboot-multi "/path/to/ac3"
     }
@@ -66,14 +66,14 @@ namespace eval change_resource_files {
 		set explore_category_photo.rco [file join dev_flash vsh resource explore_category_photo.rco]
 		set explore_category_network.rco [file join dev_flash vsh resource explore_category_network.rco]
 		set explore_category_music.rco [file join dev_flash vsh resource explore_category_music.rco]
-        set explore_category_game.rco [file join dev_flash vsh resource explore_category_game.rco]
+                set explore_category_game.rco [file join dev_flash vsh resource explore_category_game.rco]
 		set explore_category_video.rco [file join dev_flash vsh resource explore_category_video.rco]
 		set explore_category_friend.rco [file join dev_flash vsh resource explore_category_friend.rco]
-        set coldboot_raf [file join dev_flash vsh resource coldboot.raf]
-        set coldboot_stereo [file join dev_flash vsh resource coldboot_stereo.ac3]
-        set coldboot_multi [file join dev_flash vsh resource coldboot_multi.ac3]        
+                set coldboot_raf [file join dev_flash vsh resource coldboot.raf]
+                set coldboot_stereo [file join dev_flash vsh resource coldboot_stereo.ac3]
+                set coldboot_multi [file join dev_flash vsh resource coldboot_multi.ac3]        
 
-          if {[file exists $options(--explore-category-tv)] == 0 } {
+                  if {[file exists $options(--explore-category-tv)] == 0 } {
 			log "Skipping explore_category_tv.rco, $options(--explore-category-tv) does not exist"
         } else {
             log "Please note to add the TV category option in MFW Builder."
