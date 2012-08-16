@@ -74,10 +74,10 @@ namespace eval change_resource_files {
         set coldboot_multi [file join dev_flash vsh resource coldboot_multi.ac3]        
 
           if {[file exists $options(--explore-category-tv)] == 0 } {
-            log "Please note to add the TV category option in MFW Builder."
 			log "Skipping explore_category_tv.rco, $options(--explore-category-tv) does not exist"
         } else {
-            ::modify_devflash_file ${explore_category_tv.rco} ::change_resource_files::copy_resource_file $::change_resource_files::options(--explore-category-tv)
+            log "Please note to add the TV category option in MFW Builder."
+			::modify_devflash_file ${explore_category_tv.rco} ::change_resource_files::copy_resource_file $::change_resource_files::options(--explore-category-tv)
 		}
 		  
 		  if {[file exists $options(--explore-category-user)] == 0 } {
