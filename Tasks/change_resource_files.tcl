@@ -41,19 +41,19 @@
 namespace eval change_resource_files {
 
     array set ::change_resource_files::options {
-        --explore-category-tv "/path/to/rco"
-        --explore-category-user "/path/to/rco"
-	--explore-category-sysconf "/path/to/rco"
-	--explore-category-psn "/path/to/rco"
-	--explore-category-photo "/path/to/rco"
-	--explore-category-network "/path/to/rco"
-	--explore-category-music "/path/to/rco"
-	--explore-category-game "/path/to/rco"
-	--explore-category-video "/path/to/rco"
-	--explore-category-friend "/path/to/rco"
-	--coldboot-raf "/path/to/raf"
-        --coldboot-stereo "/path/to/ac3"
-        --coldboot-multi "/path/to/ac3"
+        --explore-category-tv "/path/to/file"
+	--explore-category-user "/path/to/file"
+        --explore-category-sysconf "/path/to/file"
+	--explore-category-psn "/path/to/file"
+	--explore-category-photo "/path/to/file"
+	--explore-category-network "/path/to/file"
+	--explore-category-music "/path/to/file"
+	--explore-category-game "/path/to/file"
+	--explore-category-video "/path/to/file"
+	--explore-category-friend "/path/to/file"
+	--coldboot-raf "/path/to/file"
+        --coldboot-stereo "/path/to/file"
+        --coldboot-multi "/path/to/file"
     }
 
     proc main {} {
@@ -73,81 +73,81 @@ namespace eval change_resource_files {
                 set coldboot_stereo [file join dev_flash vsh resource coldboot_stereo.ac3]
                 set coldboot_multi [file join dev_flash vsh resource coldboot_multi.ac3]        
 
-                  if {[file exists $options(--explore-category-tv)] == 0 } {
-			log "Skipping explore_category_tv.rco, $options(--explore-category-tv) does not exist"
+          if {[file exists $options(--explore-category-tv)] == 0 } {
+			log "$::tcl_platform(user), Skipping explore_category_tv.rco, $options(--explore-category-tv) does not exist"
         } else {
             log "Please note to add the TV category option in MFW Builder."
 			::modify_devflash_file ${explore_category_tv.rco} ::change_resource_files::copy_resource_file $::change_resource_files::options(--explore-category-tv)
 		}
 		  
 		  if {[file exists $options(--explore-category-user)] == 0 } {
-            log "Skipping explore_category_user.rco, $options(--explore-category-user) does not exist"
+            log "$::tcl_platform(user), Skipping explore_category_user.rco, $options(--explore-category-user) does not exist"
         } else {
             ::modify_devflash_file ${explore_category_user.rco} ::change_resource_files::copy_resource_file $::change_resource_files::options(--explore-category-user)
 		}
 		
 		 if {[file exists $options(--explore-category-sysconf)] == 0 } {
-            log "Skipping explore_category_sysconf.rco, $options(--explore-category-sysconf) does not exist"
+            log "$::tcl_platform(user), Skipping explore_category_sysconf.rco, $options(--explore-category-sysconf) does not exist"
         } else {
             ::modify_devflash_file ${explore_category_sysconf.rco} ::change_resource_files::copy_resource_file $::change_resource_files::options(--explore-category-sysconf)
 		}
 		 
 		if {[file exists $options(--explore-category-psn)] == 0 } {
-            log "Skipping explore_category_psn.rco, $options(--explore-category-psn) does not exist"
+            log "$::tcl_platform(user), Skipping explore_category_psn.rco, $options(--explore-category-psn) does not exist"
         } else {
             ::modify_devflash_file ${explore_category_psn.rco} ::change_resource_files::copy_resource_file $::change_resource_files::options(--explore-category-psn)
 		}
 		
 		if {[file exists $options(--explore-category-photo)] == 0 } {
-            log "Skipping explore_category_photo.rco, $options(--explore-category-photo) does not exist"
+            log "$::tcl_platform(user), Skipping explore_category_photo.rco, $options(--explore-category-photo) does not exist"
         } else {
             ::modify_devflash_file ${explore_category_photo.rco} ::change_resource_files::copy_resource_file $::change_resource_files::options(--explore-category-photo)
 		}
 		
 		if {[file exists $options(--explore-category-network)] == 0 } {
-            log "Skipping explore_category_network.rco, $options(--explore-category-network) does not exist"
+            log "$::tcl_platform(user), Skipping explore_category_network.rco, $options(--explore-category-network) does not exist"
         } else {
             ::modify_devflash_file ${explore_category_network.rco} ::change_resource_files::copy_resource_file $::change_resource_files::options(--explore-category-network)
 		}
 		
 		if {[file exists $options(--explore-category-music)] == 0 } {
-            log "Skipping explore_category_music.rco, $options(--explore-category-music) does not exist"
+            log "$::tcl_platform(user), Skipping explore_category_music.rco, $options(--explore-category-music) does not exist"
         } else {
             ::modify_devflash_file ${explore_category_music.rco} ::change_resource_files::copy_resource_file $::change_resource_files::options(--explore-category-music)
 		}
 		
 		if {[file exists $options(--explore-category-game)] == 0 } {
-            log "Skipping explore_category_game.rco, $options(--explore-category-game) does not exist"
+            log "$::tcl_platform(user), Skipping explore_category_game.rco, $options(--explore-category-game) does not exist"
         } else {
             ::modify_devflash_file ${explore_category_game.rco} ::change_resource_files::copy_resource_file $::change_resource_files::options(--explore-category-game)
 		}
 		
 		if {[file exists $options(--explore-category-video)] == 0 } {
-            log "Skipping explore_category_video.rco, $options(--explore-category-video) does not exist"
+            log "$::tcl_platform(user), Skipping explore_category_video.rco, $options(--explore-category-video) does not exist"
         } else {
             ::modify_devflash_file ${explore_category_video.rco} ::change_resource_files::copy_resource_file $::change_resource_files::options(--explore-category-video)
 		}
 		
 		if {[file exists $options(--explore-category-friend)] == 0 } {
-            log "Skipping explore_category_friend.rco, $options(--explore-category-friend) does not exist"
+            log "$::tcl_platform(user), Skipping explore_category_friend.rco, $options(--explore-category-friend) does not exist"
         } else {
             ::modify_devflash_file ${explore_category_friend.rco} ::change_resource_files::copy_resource_file $::change_resource_files::options(--explore-category-friend)
 		}
         
 		if {[file exists $options(--coldboot-raf)] == 0 } {
-            log "Skipping coldboot.raf, $options(--coldboot-raf) does not exist"
+            log "$::tcl_platform(user), Skipping coldboot.raf, $options(--coldboot-raf) does not exist"
         } else {
             ::modify_devflash_file ${coldboot_raf} ::change_resource_files::copy_resource_file $::change_resource_files::options(--coldboot-raf)
         }
 
         if {[file exists $options(--coldboot-stereo)] == 0 } {
-            log "Skipping coldboot_stereo, $options(--coldboot-stereo) does not exist"
+            log "$::tcl_platform(user), Skipping coldboot_stereo, $options(--coldboot-stereo) does not exist"
         } else {
             ::modify_devflash_file ${coldboot_stereo} ::change_resource_files::copy_resource_file $::change_resource_files::options(--coldboot-stereo)
         }
 
         if {[file exists $options(--coldboot-multi)] == 0 } {
-            log "Skipping coldboot_multi, $options(--coldboot-multi) does not exist"
+            log "$::tcl_platform(user), Skipping coldboot_multi, $options(--coldboot-multi) does not exist"
         } else {
             ::modify_devflash_file ${coldboot_multi} ::change_resource_files::copy_resource_file $::change_resource_files::options(--coldboot-multi)
         }
@@ -160,7 +160,7 @@ namespace eval change_resource_files {
             if {[file exists $dst] == 0} {
                 die "$dst does not exist"
             } else {
-                log "Replacing default resource file - [file tail $dst] with [file tail $src]"
+                log "$::tcl_platform(user), Replacing default resource file - [file tail $dst] with [file tail $src]"
                 copy_file -force $src $dst
             }
         }
