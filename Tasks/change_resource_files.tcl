@@ -9,6 +9,7 @@
 # Priority: 2200
 # Description: Replace resource files (USE CAUTION)
 
+# Option --change-theme: change 01.p3t PS3 theme
 # Option --explore-category-tv: explore_category_tv.rco file name
 # Option --explore-category-user: explore_category_user.rco file name
 # Option --explore-category-sysconf: explore_category_sysconf.rco file name
@@ -24,6 +25,7 @@
 # Option --coldboot-multi: coldboot_multi.ac3 audio filename
 
 
+# Type --change-theme: file open {"P3T File" {p3t}}
 # Type --explore-category-tv: file open {"RCO File" {rco}}
 # Type --explore-category-user: file open {"RCO File" {rco}}
 # Type --explore-category-sysconf: file open {"RCO File" {rco}}
@@ -41,24 +43,26 @@
 namespace eval change_resource_files {
 
     array set ::change_resource_files::options {
-        --explore-category-tv "/path/to/file"
-	--explore-category-user "/path/to/file"
-        --explore-category-sysconf "/path/to/file"
-	--explore-category-psn "/path/to/file"
-	--explore-category-photo "/path/to/file"
-	--explore-category-network "/path/to/file"
-	--explore-category-music "/path/to/file"
-	--explore-category-game "/path/to/file"
-	--explore-category-video "/path/to/file"
-	--explore-category-friend "/path/to/file"
-	--coldboot-raf "/path/to/file"
-        --coldboot-stereo "/path/to/file"
-        --coldboot-multi "/path/to/file"
+                --change-theme "/path/to/file"
+		--explore-category-tv "/path/to/file"
+		--explore-category-user "/path/to/file"
+	        --explore-category-sysconf "/path/to/file"
+		--explore-category-psn "/path/to/file"
+		--explore-category-photo "/path/to/file"
+		--explore-category-network "/path/to/file"
+		--explore-category-music "/path/to/file"
+		--explore-category-game "/path/to/file"
+		--explore-category-video "/path/to/file"
+		--explore-category-friend "/path/to/file"
+		--coldboot-raf "/path/to/file"
+                --coldboot-stereo "/path/to/file"
+                --coldboot-multi "/path/to/file"
     }
 
     proc main {} {
         variable options
         
+		set 01.p3t [file join dev_flash vsh resource theme 01.p3t]
 		set explore_category_tv.rco [file join dev_flash vsh resource explore_category_tv.rco]
 		set explore_category_user.rco [file join dev_flash vsh resource explore_category_user.rco]
 		set explore_category_sysconf.rco [file join dev_flash vsh resource explore_category_sysconf.rco]
@@ -73,7 +77,14 @@ namespace eval change_resource_files {
                 set coldboot_stereo [file join dev_flash vsh resource coldboot_stereo.ac3]
                 set coldboot_multi [file join dev_flash vsh resource coldboot_multi.ac3]        
 
-          if {[file exists $options(--explore-category-tv)] == 0 } {
+          if {[file exists $options(--change-theme)] == 0 } {
+			log "$::tcl_platform(user), Skipping 01.p3t, $options(--change-theme) does not exist"
+        } else {
+			log"$::tcl_platform(user), Please make sure the name of the new theme is 01.p3t"
+			::modify_devflash_file ${01.p3t} ::change_resource_files::copy_resource_file $::change_resource_files::options(--change-theme)
+		}
+		  
+		  if {[file exists $options(--explore-category-tv)] == 0 } {
 			log "$::tcl_platform(user), Skipping explore_category_tv.rco, $options(--explore-category-tv) does not exist"
         } else {
             log "Please note to add the TV category option in MFW Builder."
